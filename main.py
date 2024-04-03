@@ -71,13 +71,13 @@ while not done:
   speler1_y = vakjes[posities[1]][1]+5; #y-cordinaat speler op 1  
   kleur1 = (0,0,255) #blauw
   pygame.draw.circle(screen, kleur1, (speler1_x, speler1_y),10) #teken cirkel  als pion 2 is
-  speler2_x = vakjes[posities[0]][0]+10; #x-cordinaat spler op 2
+  speler2_x = vakjes[posities[0]][0]-10; #x-cordinaat spler op 2
   speler2_y = vakjes[posities[0]][1]+5; #y-cordinaat speler op 2
   kleur2 = (255,0,0) #rood
   pygame.draw.circle(screen, kleur2, (speler2_x, speler2_y),10) #teken cirkel  als pion 1 is
-  speler3_x = vakjes[posities[1]][0]+5; #x-cordinaat spler op 3
+  speler3_x = vakjes[posities[1]][0]-5; #x-cordinaat spler op 3
   speler3_y = vakjes[posities[1]][1]+10; #y-cordinaat speler op 3  
-  kleur3 = (155,0,0) #blauw
+  kleur3 = (93.7,20.7,66.6) #paars
   pygame.draw.circle(screen, kleur3, (speler3_x, speler3_y),10) #teken cirkel  als pion 1 is
   #update beeldscherm
   pygame.display.flip() #ververst scherm
