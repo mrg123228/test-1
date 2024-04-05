@@ -5,11 +5,11 @@ import random
 #--------globale variable------------
 
 #coordinaten van de vakjes
-vakjes = [[135, 537], [230, 540], [278, 541], [323, 540], [371, 541], [414, 541],[468, 542], [517, 541], [566, 537], [616, 515], [658, 478], [690, 437], [707, 390], [719, 342], [721, 285], [713, 227], [695, 182], [670, 141],[624, 95], [559, 63], [504, 62], [455, 62], [412, 62], [365,62], [317, 61],[275, 63], [231, 64], [180, 85], [146, 112], [118, 149], [98, 190],[88, 242], [90, 299], [98, 350], [123, 389], [152, 428], [189, 457],[236, 469], [280, 471], [322, 471], [370, 470], [417, 468], [469, 470],[523, 469], [567, 462], [611, 423], [640, 371], [649, 323], [649, 273],[635, 228], [599, 176], [551, 143], [486, 141], [422, 137], [367, 137],[318, 137], [270, 137], [227, 144], [176, 191], [158, 270], [170, 328],[195, 367], [238, 388], [403, 295]]
+vakjes = [[167, 307], [168, 279], [146, 248], [130, 224], [113, 196], [91, 165], [80, 132], [85, 100], [108, 75], [146, 71], [167, 102], [189, 124], [209, 163], [240, 189], [277, 213], [292, 263], [318, 291], [366, 305], [388,340], [390, 379], [401, 425], [445, 435], [490, 427], [523, 394], [560, 350], [597, 324], [639, 292], [693, 294], [737, 331], [724, 440], [722, 481], [717, 527], [696, 566], [672, 603], [661, 639], [672, 684], [717,678], [739, 654],  [759, 623], [784, 588], [804, 576] ,[835, 551], [880, 551], [914, 564], [942, 595], [960, 632], [970, 663], [988, 693], [1012, 717], [1044, 724], [1090, 706], [1128, 676], [1123, 619], [1075, 580], [1005, 545], [936, 501], [877, 473], [820, 438], [772, 409], [720, 385], [658, 381], [606, 403], [554, 444], [517, 479], [475, 501], [442, 519], [397, 523], [360, 510], [309, 501], [272, 471], [255, 436], [229, 394], [204, 359]]
 
 
 #pion posities
-posities = [0,0]
+posities = [0,0,0,0]
 
 #wie is er aan de beurt
 beurt = 0
@@ -47,14 +47,14 @@ while not done:
         worp = random.randint(1,6) # kiest een getal tussen 1 en 6
         posities[beurt] += worp # verzet pion die aan de beurt is
 
-      #verzin iets slim om de beurt over te geven 
-      if beurt == 0:
-        beurt +=1 
-      elif beurt == 1:
-        beurt = beurt - 1
+        #verzin iets slim om de beurt over te geven 
+        if beurt < 4:
+          beurt +=1 
+        if beurt == 4:
+          beurt = beurt - 4
       elif event.key == pygame.K_BACKSPACE:
         print("Knop: Backspace")
-        posities = [0,0]
+        posities = [0,0,0,0]
 
   #teken graphics
   screen.fill((255,255,255)) #begint met wite achtergrond
@@ -71,12 +71,12 @@ while not done:
   speler1_y = vakjes[posities[1]][1]+5; #y-cordinaat speler op 1  
   kleur1 = (0,0,255) #blauw
   pygame.draw.circle(screen, kleur1, (speler1_x, speler1_y),10) #teken cirkel  als pion 2 is
-  speler2_x = vakjes[posities[0]][0]-10; #x-cordinaat spler op 2
-  speler2_y = vakjes[posities[0]][1]+5; #y-cordinaat speler op 2
+  speler2_x = vakjes[posities[2]][0]-10; #x-cordinaat spler op 2
+  speler2_y = vakjes[posities[2]][1]+5; #y-cordinaat speler op 2
   kleur2 = (255,0,0) #rood
   pygame.draw.circle(screen, kleur2, (speler2_x, speler2_y),10) #teken cirkel  als pion 1 is
-  speler3_x = vakjes[posities[1]][0]-5; #x-cordinaat spler op 3
-  speler3_y = vakjes[posities[1]][1]+10; #y-cordinaat speler op 3  
+  speler3_x = vakjes[posities[3]][0]-5; #x-cordinaat spler op 3
+  speler3_y = vakjes[posities[3]][1]+10; #y-cordinaat speler op 3  
   kleur3 = (93.7,20.7,66.6) #paars
   pygame.draw.circle(screen, kleur3, (speler3_x, speler3_y),10) #teken cirkel  als pion 1 is
   #update beeldscherm
