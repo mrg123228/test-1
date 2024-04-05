@@ -19,6 +19,14 @@ worp = 0
 
 #bord afbeelding
 bord = pygame.image.load('F1bord.png')
+#coordinaat waarbij je 3 stappen vooruit 
+drie_stappen_vooruit_coords = [[936, 501]]
+
+#coordinaat waarbij je 4 stappen vooruit 
+vier_stappen_vooruit_coords = [[597, 324]]
+
+#coordinaat waarbij je 3 stappen vooruit 
+vijf_stappen_vooruit_coords = [[388, 340]]
 
 #--------pygame initialisatie--------
 #pygame inicialiseren
@@ -79,6 +87,25 @@ while not done:
   speler3_y = vakjes[posities[3]][1]+10; #y-cordinaat speler op 3  
   kleur3 = (93.7,20.7,66.6) #paars
   pygame.draw.circle(screen, kleur3, (speler3_x, speler3_y),10) #teken cirkel  als pion 1 is
+ 
+  # Controleren of een speler op een coördinaat staat waarop 3 stappen vooruit moet worden gegaan
+  for coord in vijf_stappen_vooruit_coords:
+      if posities[beurt] == vakjes.index(coord):
+          posities[beurt] += 3
+          print("Je hebt DRS dus je gaat 3 stappen vooruit. ")
+
+  # Controleren of een speler op een coördinaat staat waarop 4 stappen vooruit moet worden gegaan
+  for coord in vijf_stappen_vooruit_coords:
+   if posities[beurt] == vakjes.index(coord):
+       posities[beurt] += 4
+       print("FIA heeft niet door dat je track limits hebt dus je gaat 4 stappen vooruit")
+              
+# Controleren of een speler op een coördinaat staat waarop 5 stappen vooruit moet worden gegaan
+   for coord in vijf_stappen_vooruit_coords:
+      if posities[beurt] == vakjes.index(coord):
+           posities[beurt] += 5
+           print("Je snijdt de baan af dus je gaat 5 stappen vooruit. ")
+  
   #update beeldscherm
   pygame.display.flip() #ververst scherm
   clock.tick(60) #limit beeldscherm
