@@ -25,8 +25,11 @@ drie_stappen_vooruit_coords = [[936, 501]]
 #coordinaat waarbij je 4 stappen vooruit 
 vier_stappen_vooruit_coords = [[597, 324]]
 
-#coordinaat waarbij je 3 stappen vooruit 
+#coordinaat waarbij je 5 stappen vooruit 
 vijf_stappen_vooruit_coords = [[388, 340]]
+
+# Coördinaten waarbij je wint
+winnende_coords = [[204, 359]]
 
 #--------pygame initialisatie--------
 #pygame inicialiseren
@@ -52,13 +55,13 @@ while not done:
       if event.key == pygame.K_SPACE: #spatie
         print ("knop: spatie")
 
-        worp = random.randint(1,6) # kiest een getal tussen 1 en 6
-        posities[beurt] += worp # verzet pion die aan de beurt is
+      worp = random.randint(1,6) # kiest een getal tussen 1 en 6
+      posities[beurt] += worp # verzet pion die aan de beurt is
 
-        #verzin iets slim om de beurt over te geven 
-        if beurt < 4:
+      #verzin iets slim om de beurt over te geven 
+      if beurt < 4:
           beurt +=1 
-        if beurt == 4:
+      if beurt == 4:
           beurt = beurt - 4
       elif event.key == pygame.K_BACKSPACE:
         print("Knop: Backspace")
@@ -105,7 +108,11 @@ while not done:
       if posities[beurt] == vakjes.index(coord):
            posities[beurt] += 5
            print("Je snijdt de baan af dus je gaat 5 stappen vooruit. ")
-  
+  for coord in winnende_coords:
+    if posities[beurt] == vakjes.index(coord):
+        print("Je hebt gewonnen!")
+        done = True
+      
   #update beeldscherm
   pygame.display.flip() #ververst scherm
   clock.tick(60) #limit beeldscherm
