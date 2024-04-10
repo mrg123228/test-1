@@ -28,6 +28,8 @@ vier_stappen_vooruit_coords = [[597, 324]]
 #coordinaat waarbij je 5 stappen vooruit 
 vijf_stappen_vooruit_coords = [[388, 340]]
 
+# Coördinaten waarbij je wint
+winnende_coords = [[204, 359]]
 
 
 #--------pygame initialisatie--------
@@ -65,6 +67,7 @@ while not done:
       elif event.key == pygame.K_BACKSPACE:
         print("Knop: Backspace")
         posities = [0,0,0,0]
+
 
   #teken graphics
   screen.fill((255,255,255)) #begint met wite achtergrond
@@ -107,6 +110,12 @@ while not done:
       if posities[beurt] == vakjes.index(coord):
            posities[beurt] += 5
            print("Je snijdt de baan af dus je gaat 5 stappen vooruit. ")
+        
+  #controleren of speler op vakje staat waarop je hebt gewonnen
+  for coord in winnende_coords:
+    if posities[beurt] == vakjes.index(coord):
+        print("Je hebt gewonnen!")
+        done = True
       
   #update beeldscherm
   pygame.display.flip() #ververst scherm
