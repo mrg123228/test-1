@@ -28,8 +28,7 @@ vier_stappen_vooruit_coords = [[597, 324]]
 #coordinaat waarbij je 5 stappen vooruit 
 vijf_stappen_vooruit_coords = [[388, 340]]
 
-# Coördinaten waarbij je wint
-winnende_coords = [[204, 359]]
+
 
 #--------pygame initialisatie--------
 #pygame inicialiseren
@@ -108,10 +107,6 @@ while not done:
       if posities[beurt] == vakjes.index(coord):
            posities[beurt] += 5
            print("Je snijdt de baan af dus je gaat 5 stappen vooruit. ")
-  for coord in winnende_coords:
-    if posities[beurt] == vakjes.index(coord):
-        print("Je hebt gewonnen!")
-        done = True
       
   #update beeldscherm
   pygame.display.flip() #ververst scherm
