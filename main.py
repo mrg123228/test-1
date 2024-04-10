@@ -123,4 +123,5 @@ while not done:
 
 #--------afsluiting------------------
 pygame.quit()
+#eind 
 
