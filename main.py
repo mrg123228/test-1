@@ -54,7 +54,7 @@ while not done:
     elif event.type == pygame.KEYDOWN:
     #er is een toets ingedrukt, we kijken welke en ondernemen actie
       if event.key == pygame.K_SPACE: #spatie
-        print ("knop: spatie")
+        print ("je hebt", worp, "gegooid")
 
       worp = random.randint(1,6) # kiest een getal tussen 1 en 6
       posities[beurt] += worp # verzet pion die aan de beurt is
